@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calculator
+  template:
+    metadata:
+      labels:
+        app: calculator
+    spec:
+      containers:
+        - name: calculator
+          image: satyamraina/calculator-service  # Replace this with your actual Docker image name
+          ports:
+            - containerPort: 3051
+          env:
+            - name: MONGO_URL
+              value: "mongodb://admin:admin123@mongo:27017/calculator?authSource=calculator"

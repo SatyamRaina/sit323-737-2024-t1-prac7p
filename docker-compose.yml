@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  calculator:
+    build: .
+    container_name: calculator-microservice
+    ports:
+      - "3051:3051"
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped

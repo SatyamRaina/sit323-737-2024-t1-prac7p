@@ -1,0 +1,13 @@
+# calculator-service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculator-service
+spec:
+  selector:
+    app: calculator
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3051
+  type: NodePort  # or LoadBalancer for external access
